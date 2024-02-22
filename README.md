@@ -33,7 +33,7 @@
         subprocess.run(
             [
                 f"./node_modules/electron/dist/electron.exe",
-                f"./main.js",
+                f"./node_modules/electron-img/main.js",
                 "--",
                 f"./index.html",
             ]
@@ -42,7 +42,7 @@
         subprocess.run(
             [
                 f"./node_modules/electron/dist/Electron.app/Contents/MacOS/Electron",
-                f"./main.js",
+                f"./node_modules/electron-img/main.js",
                 "--",
                 f"./index.html",
             ]
@@ -51,7 +51,7 @@
         subprocess.run(
             [
                 f"./node_modules/electron/dist/electron",
-                f"./main.js",
+                f"./node_modules/electron-img/main.js",
                 "--",
                 f"./index.html",
             ]
