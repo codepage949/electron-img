@@ -1,4 +1,5 @@
 import subprocess
+import platform
 
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(f"""
@@ -18,11 +19,30 @@ with open("index.html", "w", encoding="utf-8") as f:
         </html>
     """)
 
-subprocess.run(
-    [
-        f"./node_modules/electron/dist/electron",
-        f"./main.js",
-        "--",
-        f"./index.html",
-    ]
-)
+if platform.system() == "Windows":
+    subprocess.run(
+        [
+            f"./node_modules/electron/dist/electron.exe",
+            f"./main.js",
+            "--",
+            f"./index.html",
+        ]
+    )
+elif platform.system() == "Darwin":
+    subprocess.run(
+        [
+            f"./node_modules/electron/dist/Electron.app/Contents/MacOS/Electron",
+            f"./main.js",
+            "--",
+            f"./index.html",
+        ]
+    )
+else:
+    subprocess.run(
+        [
+            f"./node_modules/electron/dist/electron",
+            f"./main.js",
+            "--",
+            f"./index.html",
+        ]
+    )

@@ -6,6 +6,7 @@
 1. 아래 코드 내용으로 main.py 생성
     ```python
     import subprocess
+    import platform
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(f"""
@@ -28,14 +29,33 @@
             </html>
         """)
 
-    subprocess.run(
-        [
-            f"./node_modules/electron/dist/electron",
-            f"./node_modules/electron-img/main.js",
-            "--",
-            f"./index.html",
-        ]
-    )
+    if platform.system() == "Windows":
+        subprocess.run(
+            [
+                f"./node_modules/electron/dist/electron.exe",
+                f"./main.js",
+                "--",
+                f"./index.html",
+            ]
+        )
+    elif platform.system() == "Darwin":
+        subprocess.run(
+            [
+                f"./node_modules/electron/dist/Electron.app/Contents/MacOS/Electron",
+                f"./main.js",
+                "--",
+                f"./index.html",
+            ]
+        )
+    else:
+        subprocess.run(
+            [
+                f"./node_modules/electron/dist/electron",
+                f"./main.js",
+                "--",
+                f"./index.html",
+            ]
+        )
     ```
 1. python main.py
 
