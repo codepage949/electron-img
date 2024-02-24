@@ -4,7 +4,7 @@ const path = require("path");
 
 if (!process.argv[3]) {
   console.log("html path is required");
-  process.exit(-1);
+  app.exit();
 }
 
 const htmlPath = path.resolve(process.argv[3]);
@@ -28,6 +28,13 @@ function createWindow() {
     }
   });
 
+  mainWindow.webContents.on('console-message', (event, level, message) => {
+    console.log(`[${level}] ${message}`);
+
+    if (level === 3) {
+      app.exit();
+    }
+  });
   mainWindow.loadFile(htmlPath);
 }
 
