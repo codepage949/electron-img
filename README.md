@@ -59,4 +59,4 @@
     ```
 1. python main.py
 
-실행 결과로 result.jpg 가 생성됩니다.
+실행 결과로 result.png 가 생성됩니다.

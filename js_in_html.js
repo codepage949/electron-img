@@ -10,7 +10,7 @@ window.onload = () => {
   let outputPath = process.env["OUTPUT_PATH"];
 
   if (!outputPath) {
-    outputPath = "result.jpg";
+    outputPath = "result.png";
   }
 
   const imgType = (() => {
