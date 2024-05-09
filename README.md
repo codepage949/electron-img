@@ -2,7 +2,7 @@
 
 ## 예제
 
-1. npm install https://github.com/Promedius/electron-img
+1. npm install https://github.com/codepage949/electron-img
 1. 아래 코드 내용으로 main.py 생성
     ```python
     import subprocess
